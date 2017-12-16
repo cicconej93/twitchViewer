@@ -36,11 +36,14 @@ function selectAll(){
 	$(".stream").each(function(){
 		if(this.innerText == ""){		
 			if(globalJsonVar[j].stream !== null){
-				$(this).html('<span>'+globalJsonVar[j].stream.display_name + '<img src='+globalJsonVar[j].stream.logo+'></span>');
+				$(this).html('<a href='+globalJsonVar[j].stream.url+'><span>'+globalJsonVar[j].stream.display_name + '<img src='+globalJsonVar[j].stream.logo+'></span><p>'+globalJsonVar[j].stream.status+'</p></a>');
 			} else {
 				$(this).html('<span>'+globalJsonVar[j].display_name+'</span>');
 			}		
 		} j++;
+		if($(this).text == ""){
+			$(this).fadeOut();
+		}
 	});
 }
 
@@ -53,25 +56,24 @@ function selectOn(){
 	$(".stream").each(function(){
 		if(this.innerText == ""){		
 			if(globalJsonVar[j].stream !== null){
-				$(this).html('<span>'+globalJsonVar[j].stream.display_name + '<img src='+globalJsonVar[j].stream.logo+'></span>');
+				$(this).html('<a href='+globalJsonVar[j].stream.url+'><span>'+globalJsonVar[j].stream.display_name + '<img src='+globalJsonVar[j].stream.logo+'></span><p>'+globalJsonVar[j].stream.status+'</p></a>');
 			} 		
 		} j++;
+		if(this.innerText == ""){
+			$(this).remove();
+		}
 	});
+
+
 }
 
 function selectOff(){
-	var len = globalJsonVar.length;
-	for(var i = 0; i < globalJsonVar.length-1; i++){
-		$(".streams").append("<div class='stream'></div>")
-	} 
-	var j = 0;
-	$(".stream").each(function(){
-		if(this.innerText == ""){		
-			if(globalJsonVar[j].stream == null){
-				$(this).html('<span>'+globalJsonVar[j].display_name + '</span>');
-			} 		
-		} j++;
-	});
+	for(var i =0; i < globalJsonVar.length-1; i++){
+		if(globalJsonVar[i].stream == null){
+			$(".streams").append("<div class='stream'><span>"+globalJsonVar[i].display_name+"</span></div>");	
+		}
+		
+	}
 }
 
 
