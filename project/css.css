@@ -3,7 +3,6 @@ body {
 }
 
 span {
-
 	font-family: 'Roboto', sans-serif;
 	white-space: nowrap;
 	overflow: hidden;
@@ -79,6 +78,7 @@ p {
 	overflow: hidden;
 	background: rgb(95, 63, 150);
 	font-family: 'Roboto', sans-serif;
+	font-size: 23px;
 	 -webkit-transition: height .6s, line-height .5s linear;
  	 -moz-transition: height .6s, line-height .5s linear;
  	 transition: height .2s, line-height .133s linear;
