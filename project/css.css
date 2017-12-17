@@ -54,11 +54,12 @@ p {
 
 .container {
 	margin: 50px auto;
+	padding-bottom:  20px;
 	background: rgb(240, 237, 247);
 	min-width: 250px;
 	width: 90%;
 	max-width: 666px;
-	height: 300px;
+	min-height: 300px;
 	border: 2px solid rgb(95, 63, 150);
 }
 
