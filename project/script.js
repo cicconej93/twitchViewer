@@ -1,5 +1,6 @@
 
 var globalJsonVar = [];
+var globalJsonChan = [];
 var selection = "";
 
 var streamers = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
@@ -27,6 +28,7 @@ $(".col-but").on("click", function(){
 
 
 function selectAll(){
+	console.log(globalJsonVar);
 	for(var i = 0; i < globalJsonVar.length; i++){
 		if(globalJsonVar[i].stream == null){
 			$(".streams").append("<div class='stream'><span>"+streamers[i]+"</span></div>");
@@ -55,10 +57,13 @@ function selectOff(){
 
 function getData(){
 	for(var i = 0; i < streamers.length; i++){
-		$.getJSON('https://wind-bow.glitch.me/twitch-api/streams/'+streamers[i]+'', function(data){
+		$.ajax({url:'https://wind-bow.glitch.me/twitch-api/streams/'+streamers[i]+'', async: false, success: function(data){
 			globalJsonVar = globalJsonVar.concat(data); 	
-		});
+		}});
+
 	} 
 }
+
+
 
 
